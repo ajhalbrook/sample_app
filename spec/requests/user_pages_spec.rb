@@ -14,6 +14,7 @@ describe "User pages" do
     end
 
     it { should have_selector('title', text: 'All users') }
+    it { should have_selector('h1',    text: 'All users') }
 
     describe "pagination" do
       
@@ -197,6 +198,7 @@ describe "User pages" do
   
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
     before do
       sign_in user
       visit edit_user_path(user)
